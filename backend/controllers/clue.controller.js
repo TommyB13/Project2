@@ -54,10 +54,9 @@ exports.create = (req, res) => {
 // put
 exports.update = (req, res) => {
     
-    // TODO: needs more comprehensive check for url-unsafe characters
-    if (req.body.urlStem != undefined && (req.body.urlStem === "" || req.body.urlStem.indexOf(" ") >= 0)) {
+    if (req.body.urlStem != undefined && !isAlphanumeric(req.body.urlStem)) {
         return res.status(400).send({
-            message: "urlStem can not be empty or contain whitespace"
+            message: "urlStem must only contain alphanumeric characters"
         });
     }
 
@@ -106,6 +105,11 @@ exports.delete = (req, res) => {
                 message: "Could not delete clue with id " + req.params.clueId
             });
         });
+}
+
+// https://javascript.plainenglish.io/check-if-string-is-alphanumeric-in-javascript-e325caa3ee
+function isAlphanumeric(str) {
+    return str.search(/^[a-zA-Z0-9]+$/) !== -1;
 }
 
 // Generate a random sequence of alphanumeric characters
