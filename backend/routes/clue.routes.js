@@ -8,6 +8,7 @@ router.get('/clues/:clueId', clues.findByURLStem);
 // TODO: These routes need authorization middleware
 router.get('/clues', clues.findAll);
 router.post('/clues', clues.create);
+router.post('/clues/bulk', clues.bulkCreate);
 router.put('/clues/:clueId', clues.update);
 router.delete('/clues/:clueId', clues.delete);
 

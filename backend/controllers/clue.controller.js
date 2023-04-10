@@ -31,6 +31,10 @@ exports.findAll = (req, res) => {
         })
 }
 
+exports.bulkCreate = (req, res) => {
+    return res.send("bulkCreate");
+}
+
 // post
 exports.create = (req, res) => {
 
