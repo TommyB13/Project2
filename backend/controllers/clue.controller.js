@@ -1,5 +1,7 @@
 const Clue = require('../models/clue.model.js');
 
+const baseURL = "https://sshqr.com/"
+
 // get
 exports.findByURLStem = (req, res) => {
 
@@ -31,8 +33,54 @@ exports.findAll = (req, res) => {
         })
 }
 
+// bulk create
 exports.bulkCreate = (req, res) => {
-    return res.send("bulkCreate");
+    
+    if (req.body.clues == undefined || req.body.clues == []) {
+        
+        return res.status(400).send({
+            message: "clues must not be empty"
+        });
+    }
+
+    // Delete existing clues
+    (async () => {
+        await Clue.collection.drop();
+    })();
+    
+    // Process input
+    (async () => {
+        
+        let output = []
+
+        for (const clue of req.body.clues) {
+            
+            if (clue.url == undefined || clue.url == "") {
+                return res.status(400).send({
+                    message: "clue URL must not be empty"
+                })
+            }
+
+            let newClue = new Clue({
+                urlStem: clue.url.slice(baseURL.length),
+                message: clue.description || ""
+            })
+
+            await newClue.save()
+                .then(data => {
+                    output.push(data)
+                }).catch(err => {
+                    res.status(500).send({
+                        message: err.message || "Some error occurred while creating the Clue."
+                    });
+                });
+        }
+
+        return res.send(output);
+    })();
+    
+
+    
 }
 
 // post
