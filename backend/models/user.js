@@ -5,10 +5,15 @@ const model = mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
+    clues_found: {
+        type: [String],
+        required: false
+    }
+    ,
+    new_clue: {
         type: String,
-        required: true
+        required: false
     }
 });
 
-module.exports = new mongoose.model("User", model)
+module.exports = new mongoose.model("Teams", model)
