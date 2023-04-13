@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
 const model = mongoose.Schema({
-    email: {
+    urlStem: {
         type: String,
         required: true
     },
-    password: {
+    message: {
         type: String,
-        required: true
+        required: false
     }
 });
 
-module.exports = new mongoose.model("User", model)
+module.exports = new mongoose.model("Clue", model)
