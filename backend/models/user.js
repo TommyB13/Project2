@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const model = mongoose.Schema({
-    email: {
+    name: {
         type: String,
         required: true
     },

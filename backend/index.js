@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const authRoute = require('./routes/auth');
 const noteRoute = require('./routes/note.routes.js');
 
-const dbURI = "mongodb://127.0.0.1/pies";
+const dbURI = "mongodb://127.0.0.1/scavenger-hunt";
 app.use(express.json());
 
 app.use(morgan('dev'));

@@ -11,9 +11,9 @@ const middleware = require('../middlewares')
 const { emit } = require('nodemon')
 
 router.post('/clue', (req, res) => {
-    User.findOne({ email: req.body.email })
+    User.findOne({ name: req.body.name })
         .then(user => {
-            if (!user.email) res.status(404).json({ error: 'no user with that email found' })
+            if (!user) res.status(404).json({ error: 'no Team with that name found' })
             else {
                 const clues = user.clues_found
                 new_clue = req.body.new_clue
@@ -40,8 +40,8 @@ router.post('/clue', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    const newUser = User({ email: req.body.email, clues_found: req.body.clues_found })
-    User.findOne({ email: req.body.email })
+    const newUser = User({ name: req.body.name, clues_found: req.body.clues_found })
+    User.findOne({ name: req.body.name })
         .then(user => {
             if (!user) {
                 newUser.save()
@@ -53,7 +53,7 @@ router.post('/signup', (req, res) => {
                     })
             }
             else {
-                res.status(403).json({ error: 'User Already Exsits' })
+                res.status(403).json({ error: 'Team Name Already Exsits' })
             }
         })
         .catch(error => {
@@ -65,9 +65,5 @@ router.post('/signup', (req, res) => {
 router.get('/jwt-test', middleware.verify, (req, res) => {
     res.status(200).json(req.user)
 })
-
-// function generateToken(user) {
-//     return jwt.sign({ data: user }, tokenSecret, { expiresIn: '24h' })
-// }
 
 module.exports = router
