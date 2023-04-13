@@ -6,6 +6,7 @@ body {
   }
   
   .container {
+    margin-top: 100px;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -19,6 +20,8 @@ body {
     font-weight: bold;
     color: #3B8729;
     margin-bottom: 30px;
+    margin-top: 50px;
+    text-align: center;
   }
   
   form {
