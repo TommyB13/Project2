@@ -5,14 +5,16 @@ const cors = require('cors');
 const morgan = require('morgan');
 const authRoute = require('./routes/auth');
 const noteRoute = require('./routes/note.routes.js');
+const clueRoute = require('./routes/clue.routes.js');
 
 const dbURI = "mongodb://127.0.0.1/scavenger-hunt";
 app.use(express.json());
 
 app.use(morgan('dev'));
 app.use(cors());
-app.use('/api/auth', authRoute);
-app.use('/api', noteRoute);
+//app.use('/api/auth', authRoute);
+//app.use('/api', noteRoute);
+app.use("/api", clueRoute)
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
