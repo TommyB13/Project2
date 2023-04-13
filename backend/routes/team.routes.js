@@ -1,13 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Team = require('../models/team.model')
-const bcrypt = require('bcrypt')
-const rounds = 10
-
-const jwt = require('jsonwebtoken')
-const tokenSecret = "my-token-secret"
-
-const middleware = require('../middlewares')
 
 router.post('/clue', (req, res) => {
     Team.findOne({ name: req.body.name })
