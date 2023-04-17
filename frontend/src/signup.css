@@ -1,4 +1,4 @@
-body {
+body::before {
   margin: 0;
   padding: 0;
   font-family: "Times New Roman", Times, serif;
@@ -7,12 +7,100 @@ body {
   overflow: hidden; /* Prevents the floating words from overflowing the body */
 }
 
+table.comicGreen {
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #3B8729;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+}
+
+table.comicGreen td,
+table.comicGreen th {
+  border: 1px solid #3B8729;
+  padding: 3px 2px;
+}
+
+table.comicGreen tbody td {
+  font-size: 17px;
+  font-weight: bold;
+  color: #3B8729;
+}
+
+table.comicGreen tr:nth-child(even) {
+  background: #CEE0CC;
+}
+
+table.comicGreen thead {
+  background: #3B8729;
+  background: -moz-linear-gradient(top, #6ca55e 0%, #4e933e 66%, #3B8729 100%);
+  background: -webkit-linear-gradient(top, #6ca55e 0%, #4e933e 66%, #3B8729 100%);
+  background: linear-gradient(to bottom, #6ca55e 0%, #4e933e 66%, #3B8729 100%);
+  border-bottom: 1px solid #444444;
+}
+
+table.comicGreen thead th {
+  font-size: 23px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #D0E4F5;
+}
+
+table.comicGreen thead th:first-child {
+  border-left: none;
+}
+
+table.comicGreen tfoot td {
+  font-size: 21px;
+}
+
+table.comicGreen tfoot .links {
+  text-align: right;
+}
+
+table.comicGreen tfoot .links a {
+  display: inline-block;
+  background: #FFFFFF;
+  color: #3B8729;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #5d5a5a;
+  color: #fff;
+  padding: 10px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 10px;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+.navbar a.active {
+  color: #ff0;
+  text-decoration: underline;
+}
+
+
 html {
   height: 100%;
 }
 
-body::before {
-  
+/* body::after {
   content: "";
   position: absolute;
   top: 0;
@@ -22,58 +110,10 @@ body::before {
   opacity: 0.2;
   background-image: url("qr.png");
   background-repeat: repeat;
-}
-
-/* Keyframes for the floating words animation */
-@keyframes float {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(50vw, 80vh, 0);
-  }
-}
-
-/* Styling for the floating words */
-.floating-words {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Allows clicks to go through the floating words */
-  z-index: -1; /* Puts the floating words behind the content */
-}
-
-.floating-words span {
-  position: absolute;
-  font-size: 2rem;
-  color: rgba(255, 255, 255, 0.5);
-  pointer-events: none; /* Allows clicks to go through the floating words */
-  animation-name: float;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-/* Add words here, separated by spaces */
-.floating-words span:nth-child(1) {
-  top: 10%;
-  left: 10%;
-}
-
-.floating-words span:nth-child(2) {
-  top: 50%;
-  left: 30%;
-}
-
-.floating-words span:nth-child(3) {
-  top: 80%;
-  left: 70%;
-}
+} */
 
 .container2 {
-  margin: 25% auto;
+  margin: 15% auto;
   padding: 50px;
   width: 50%;
   background-color: #FFFFFF;

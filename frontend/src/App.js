@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import {BrowserRouter, Route, Link, Routes, useLocation} from 'react-router-dom';
 
 import Signup from './Signup';
+import Navbar from './Navbar';
+import Leaderboard from './Leaderboard';
 
 export default function App() {
   return (
@@ -12,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Signup></Signup>}></Route>
           <Route path="/:clueURLStem" element={<div>Leaderboard goes here.....</div>}/>
-          <Route path="/leaderboard" element={<div>Leaderboard goes here.</div>}/>
+          <Route path="/Leaderboard" element={<Leaderboard></Leaderboard>}></Route>
         </Routes>
         
       </BrowserRouter>
