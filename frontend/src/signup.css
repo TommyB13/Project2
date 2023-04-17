@@ -1,67 +1,132 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Times New Roman", Times, serif;
-    background-color: #EEEEEE;
-  }
-  
-  .container {
-    margin-top: 100px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid #3B8729;
-    background-color: #FFFFFF;
-  }
-  
-  h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #3B8729;
-    margin-bottom: 30px;
-    margin-top: 50px;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  label {
-    font-size: 24px;
-    font-weight: bold;
-    color: #3B8729;
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    max-width: 400px;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #3B8729;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"] {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #3B8729;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #4e933e;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: rgb(67, 133, 161);
+  min-height: 100vh;
+  overflow: hidden; /* Prevents the floating words from overflowing the body */
+}
 
-  
+html {
+  height: 100%;
+}
+
+/* Keyframes for the floating words animation */
+@keyframes float {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(50vw, 80vh, 0);
+  }
+}
+
+/* Styling for the floating words */
+.floating-words {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to go through the floating words */
+  z-index: -1; /* Puts the floating words behind the content */
+}
+
+.floating-words span {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none; /* Allows clicks to go through the floating words */
+  animation-name: float;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Add words here, separated by spaces */
+.floating-words span:nth-child(1) {
+  top: 10%;
+  left: 10%;
+}
+
+.floating-words span:nth-child(2) {
+  top: 50%;
+  left: 30%;
+}
+
+.floating-words span:nth-child(3) {
+  top: 80%;
+  left: 70%;
+}
+
+.container2 {
+  margin: 10% auto;
+  padding: 50px;
+  width: 50%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  position: relative; /* Allows the floating words to be positioned relative to this element */
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+}
+
+button[type="submit"]:hover {
+  border-radius: 5px;
+}
+
+button[type="submit"]:hover::before {
+  content: "Ready to go!";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

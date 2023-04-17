@@ -10,9 +10,9 @@ export default function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/:clueURLStem" element={<Signup></Signup>}></Route>
-          <Route path="/" element={<div>Leaderboard goes here</div>}/>
-          <Route path="/leaderboard" element={<div>Leaderboard goes here</div>}/>
+          <Route path="/" element={<Signup></Signup>}></Route>
+          <Route path="/:clueURLStem" element={<div>Leaderboard goes here.....</div>}/>
+          <Route path="/leaderboard" element={<div>Leaderboard goes here.</div>}/>
         </Routes>
         
       </BrowserRouter>
