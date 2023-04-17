@@ -2,6 +2,30 @@ const express = require('express')
 const router = express.Router()
 const Team = require('../models/team.model')
 
+router.get('/array', (req, res) => {
+    Team.find()
+        .then(team => {
+            if (!team) res.status(404).json({ error: 'no Team with that name found' })
+            else {
+                const all = new Array;
+                for (let i = 0; i <= Team.length; i++) {
+                    const temp = {
+                        name: team[i].name,
+                        clues: team[i].clues_found.length
+                    }
+                    all[i] = temp
+                }
+                // const clues = team[0].clues_found
+                // const number = clues.length
+                // res.status(200).json("Number of clues " + team.name + " found: " + String(number))
+                res.status(200).json(all)
+            }
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
+});
+
 router.post('/clue', (req, res) => {
     Team.findOne({ name: req.body.name })
         .then(team => {
