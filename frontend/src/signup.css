@@ -11,6 +11,19 @@ html {
   height: 100%;
 }
 
+body::before {
+  
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: url("qr.png");
+  background-repeat: repeat;
+}
+
 /* Keyframes for the floating words animation */
 @keyframes float {
   from {
@@ -60,7 +73,7 @@ html {
 }
 
 .container2 {
-  margin: 10% auto;
+  margin: 25% auto;
   padding: 50px;
   width: 50%;
   background-color: #FFFFFF;
