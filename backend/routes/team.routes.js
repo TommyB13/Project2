@@ -17,9 +17,13 @@ router.get('/array', (req, res) => {
                     }
                     all[i] = temp
                 }
-                // const clues = team[0].clues_found
-                // const number = clues.length
-                // res.status(200).json("Number of clues " + team.name + " found: " + String(number))
+                all.sort(function (b, a) {
+                    if (b.clues == a.clues) {
+                        return a.time - b.time
+                    }
+                    return b.clues - a.clues
+                })
+                all.reverse()
                 res.status(200).json(all)
             }
         })
