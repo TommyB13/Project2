@@ -115,19 +115,28 @@ function Signup() {
           </div>
         )
       } else if (pageState === PageState.Message) {
-
+        
         if (cluedata.data.message == "") {
           return (
-            <h1>Response Recorded</h1>
+            <div className="container">
+              <h1>Response Recorded</h1>
+            </div>
           )
+        } else {
+          return (
+            <div className="container">
+    
+              <h1>Hint For Next QR Code...</h1>
+              <div className="message">
+                <p>{cluedata.data.message}</p>
+              </div>
+            </div>
+          );
         }
-        return (
-          <div>
-            <h1>Hint for next clue:</h1>
-            <p>{cluedata.data.message}</p>
-          </div>
-        )
-      } else if (pageState === PageState.Loading) {
+
+        
+      }
+      else if (pageState === PageState.Loading) {
         return
       }
 
