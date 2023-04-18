@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
+import { backendURLBase } from './urlParams';
 
 import './signup.css'
-
-const URLBase = "http://localhost:2400/"
 
 const PageState = {
   Loading: Symbol("loading"),
@@ -26,7 +25,7 @@ function Signup() {
     useEffect(() => {
 
       async function getResults() {
-        await axios(URLBase + 'api/clues/' + clueURLStem).then( results => {
+        await axios(backendURLBase + 'api/clues/' + clueURLStem).then( results => {
 
           setClueData({data: results.data})
           setPageState(PageState.TeamForm)
@@ -60,7 +59,7 @@ function Signup() {
             e.preventDefault();
 
             async function post() {
-              return await axios.post(URLBase + "api/auth/clue", {
+              return await axios.post(backendURLBase + "api/auth/clue", {
                 
                   name: teamname,
                   new_clue: clueURLStem
@@ -84,7 +83,7 @@ function Signup() {
             }
 
             async function createTeam() {
-              await axios.post(URLBase + "api/auth/signup", { 
+              await axios.post(backendURLBase + "api/auth/signup", { 
                 name: teamname,
                 clues_found: []
               });

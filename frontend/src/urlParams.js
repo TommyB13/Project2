@@ -1,0 +1,1 @@
+export var backendURLBase = "http://localhost:2400/"
