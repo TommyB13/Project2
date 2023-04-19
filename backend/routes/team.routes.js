@@ -5,8 +5,10 @@ const Team = require('../models/team.model')
 router.get('/array', (req, res) => {
     Team.find()
         .then(team => {
+            console.log("SDLFKSD");
             if (!team) res.status(404).json({ error: 'no Team with that name found' })
             else {
+                console.log(team);
                 const all = new Array;
                 for (let i = 0; i <= Team.length; i++) {
                     const temp = {
