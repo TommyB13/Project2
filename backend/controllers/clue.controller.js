@@ -1,6 +1,6 @@
 const Clue = require('../models/clue.model.js');
 
-const baseURL = "https://sshqr.com/"
+const baseURL = "https://localhost:2400/"
 
 // get
 exports.findByURLStem = (req, res) => {
