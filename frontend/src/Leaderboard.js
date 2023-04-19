@@ -11,7 +11,7 @@ function Leaderboard() {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:2400/api/auth/array%27').then(response => {
+    axios.get('http://localhost:2400/api/auth/array').then(response => {
       setTeams(response.data);
     }).catch(error => {
       console.log(error);
