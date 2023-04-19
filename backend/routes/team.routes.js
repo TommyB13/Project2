@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const Team = require('../models/team.model')
+const Team = require('../models/team.model');
+const teamModel = require('../models/team.model');
 
 router.get('/array', (req, res) => {
     Team.find()
@@ -10,28 +11,34 @@ router.get('/array', (req, res) => {
             else {
                 console.log(team);
                 const all = new Array;
-                for (let i = 0; i <= Team.length; i++) {
+                for (let i = 0; i < team.length; i++) {
                     const temp = {
                         name: team[i].name,
-                        clues: team[i].clues_found.length
+                        clues: team[i].clues_found.length,
+                        time: team[i].time
                     }
                     all[i] = temp
                 }
-                // const clues = team[0].clues_found
-                // const number = clues.length
-                // res.status(200).json("Number of clues " + team.name + " found: " + String(number))
+                all.sort(function (b, a) {
+                    if (b.clues == a.clues) {
+                        return a.time - b.time
+                    }
+                    return b.clues - a.clues
+                })
+                all.reverse()
                 res.status(200).json(all)
             }
         })
         .catch(error => {
             res.status(500).json(error)
+            console.log(error)
         })
 });
 
 router.post('/clue', (req, res) => {
     Team.findOne({ name: req.body.name })
         .then(team => {
-            if (!team) res.status(404).json({ error: 'no Team with that name found' })
+            if (!team) res.status(404).json({ error: 'No teams found' })
             else {
                 const clues = team.clues_found
                 new_clue = req.body.new_clue
@@ -44,6 +51,8 @@ router.post('/clue', (req, res) => {
                 if (!check) {
                     clues.push(new_clue)
                     team.clues_found = clues
+                    team.time = new Date()
+                    // console.log(new Date())
                     res.status(200).json(team.clues_found)
                     team.save();
                 }

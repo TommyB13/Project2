@@ -28,9 +28,9 @@ function Leaderboard() {
       <table className="comicGreen">
             <thead>
                 <tr>
-                    <th>Teams</th>
+                    <th>Team Name</th>
                     <th>Clues Found</th>
-                    <th>Time</th>
+                    <th>Last Discovery Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@ function Leaderboard() {
                 <tr key={team.name}>
                   <td>{team.name}</td>
                   <td>{team.clues}</td>
-                  <td>Noon</td>
+                  <td>{new Date(Date.parse(team.time)).toLocaleDateString('en-us', {month:"short", day:"numeric", hour:"numeric", minute:"numeric",second:"numeric"})}</td>
                 </tr>
               ))}
             </tbody>

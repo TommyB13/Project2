@@ -8,10 +8,13 @@ const model = mongoose.Schema({
     clues_found: {
         type: [String],
         required: false
-    }
-    ,
+    },
     new_clue: {
         type: String,
+        required: false
+    },
+    time: {
+        type: Date,
         required: false
     }
 });
