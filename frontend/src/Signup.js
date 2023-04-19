@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
-import axios from 'axios';
-import { backendURLBase } from './urlParams';
 
+import axios from 'axios';
 import './signup.css'
+import { useParams } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+import './signup.css';
+import Navbar from './Navbar';
+import { backendURLBase } from './urlParams';
 
 const PageState = {
   Loading: Symbol("loading"),
@@ -19,7 +22,11 @@ function Signup() {
   const [teamname, setTeamName] = useState('');
   let {clueURLStem} = useParams();
 
-
+    useEffect(() => {
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+    }, []);
 
   
     useEffect(() => {
@@ -139,10 +146,8 @@ function Signup() {
         return
       }
 
-  
-
-
-
 }
+
+  
 
 export default Signup;
