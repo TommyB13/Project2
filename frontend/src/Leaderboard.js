@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import './signup.css';
 import Navbar from './Navbar';
 import axios from 'axios';
+import {backendURLBase} from './urlParams.js'
 
 function Leaderboard() {
   const { clueUrlStem } = useParams();
@@ -11,7 +12,7 @@ function Leaderboard() {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:2400/api/auth/array').then(response => {
+    axios.get(backendURLBase + 'api/auth/array').then(response => {
       setTeams(response.data);
     }).catch(error => {
       console.log(error);

@@ -135,7 +135,7 @@ function Signup() {
           return (
             <div className="container">
     
-              <h1>Hint For Next QR Code...</h1>
+              <h1>Message</h1>
               <div className="message">
                 <p>{cluedata.data.message}</p>
               </div>
