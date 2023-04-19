@@ -17,14 +17,14 @@ function Leaderboard() {
       console.log(error);
     });
 
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+    const colors = ['#ff8888', '#88ff88', '#8888ff', '#ffff88', '#88ffff', '#ff88ff'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = randomColor;
   }, []);
 
   return (
-    <div>
-      <Navbar />
+    <div className="container">
+      <h1>Leaderboard</h1>
       <table className="comicGreen">
             <thead>
                 <tr>

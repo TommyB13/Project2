@@ -23,7 +23,7 @@ function Signup() {
   let {clueURLStem} = useParams();
 
     useEffect(() => {
-      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+      const colors = ['#ff8888', '#88ff88', '#8888ff', '#ffff88', '#88ffff', '#ff88ff'];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       document.body.style.backgroundColor = randomColor;
     }, []);
@@ -52,13 +52,16 @@ function Signup() {
     if(pageState === PageState.NotFound) {
 
       return (
-        <p>Clue Not Found</p>
+        <div className="container">
+          <h1>Clue Not Found</h1>
+        </div>
+
       )
 
     } else if(pageState === PageState.TeamForm) {
         
         return (
-          <div>
+          <div className="container">
 
           <h1>You Found A Clue!</h1>
           <form action="#" method="post" onSubmit={(e) => {

@@ -19,13 +19,12 @@ body {
   }
   
   .container {
-    margin-top: 100px;
-    max-width: 600px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     border: 2px solid #3B8729;
-    background-color: #FFFFFF;
+    background-color: #f3f3f3;
   }
   
   h1 {
@@ -101,7 +100,7 @@ body {
   }
   
  
-  
+  /*
   button[type="submit"]:hover::before {
     content: "Ready to go!";
     position: absolute;
@@ -114,6 +113,7 @@ body {
     align-items: center;
     justify-content: center;
   }
+  */
 
   table.comicGreen {
     font-family: "Times New Roman", Times, serif;
